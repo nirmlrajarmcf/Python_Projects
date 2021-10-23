@@ -69,4 +69,4 @@ class twitter:
         print('sent password')
         
         #chrome closes soon after api, so sleeping
-        time.sleep(100)
+        time.sleep(60)

@@ -1,0 +1,59 @@
+1. Download the respository
+2. Please run app_run.py in spyder anaconda
+3. Open Postman
+4. Call the APIs with given structure 
+----------------------------------------------------------------------------------------------------
+
+#Login API
+URL     : http://localhost:8082/api/login
+METHOD  : POST
+INPUT   : 
+			{
+				"username":"xx@gmail.com",
+				"password":"*******",
+				"mobile_no":"nnnnnnnnnn"
+			}
+			
+OUTPUT  : {
+			"status": "Success"
+		  }
+Automatically Login to twitter and opensthe home page and closes after a minute
+
+----------------------------------------------------------------------------------------------------
+
+#Stores the tweets of given user to DB
+URL     : http://localhost:8082/api/save_tweets_user
+METHOD  : POST
+INPUT   : 
+			{
+				"screen_name":"nnnnnn",
+				"count":10
+			}
+			
+OUTPUT  : {
+			"status": "Success"
+		  }
+		  
+*this API can be scheduled by another python scripts to get recent tweet and store it t DB		  
+
+----------------------------------------------------------------------------------------------------
+
+#Get tweets stored in DB
+URL     : http://localhost:8082/api/get_tweet_by_Date
+METHOD  : POST
+INPUT   : 
+			{
+				"fromDate":1634909105000,
+				"toDate":1634922396000,
+				"ascnd":false
+			}
+			
+			*dates are in epoch format
+			*give ascnd:false, if need to fetch latest tweets first
+			
+OUTPUT  :  JSON object list with author,date and tweet text
+
+*after adding new tweets, we can call api http://localhost:8082/api/save_tweets_user
+*the call api http://localhost:8082/api/get_tweet_by_Date to see new tweets coming in response
+
+-----------------------------------------------------------------------------------------------------
