@@ -12,11 +12,6 @@ app = Flask(__name__)
 from app_Helper import login_mthd,get_tweets_by_Date
 from app_Helper import save_user_tweets
 
-
-@app.route('/api/hello_world')
-def hello():
-    return "hello World !"
-
 @app.route('/api/login', methods=['POST'])
 def login():
     
